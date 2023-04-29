@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+    <script src="formEmpty.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <main class="container">
+        <div id="dialog" style="display:none">
+            <div class="dialog-form">
+                <div class = "dialog-message"></div>
+                <div>
+                    <button onclick="closeDialog()">Aceptar</button>
+                </div>    
+            </div>
+            
+        </div>
+        <div class="form">
+            <header>
+                <h1>Formulario de registro</h1>
+            </header>
+            <section class="form-body">
+                <section>
+                    <div class="form-label">
+                        <label for="email">Email:</label>
+                    </div>
+                    <div>
+                        <input type="email" id="email"  onblur="verifyRequired(this)" />
+                    </div>
+                </section>
+                <section>
+                    <div class="form-label">
+                        <label for="name">Nombre completo:</label>
+                    </div>
+                    <div>
+                        <input type="text" id="name" onblur="verifyRequired(this)"/>
+                    </div>
+                </section>
+                <section>
+                    <div class="form-label">
+                        <label for="birthdate">Fecha de nacimiento:</label>
+                    </div>
+                    <div>
+                        <input type="date" id="birthdate" />
+                    </div>
+                </section>
+                <section>
+                    <div class="form-label">
+                        <label for="sex">Sexo:</label>
+                    </div>
+                    <div>
+                        <select name="sex" id="sex">
+                            <option value="1">Masculino</option>
+                            <option value="2">Femenino</option>
+                        </select>
+                    </div>
+                </section>
+                <section>
+                    <div class="form-label">
+                        <label for="interests">Intereses:</label>
+                    </div>
+                    <div>
+                        <label> <input type="checkbox" name="interests" id="interests" value="1"> Computación </label>
+                    </div>
+                    <div>
+                        <label> <input type="checkbox" name="interests" id="interests" value="2"> Deportes </label>
+                    </div>
+                    <div>
+                        <label> <input type="checkbox" name="interests" id="interests" value="3"> Música </label>
+                    </div>
+                    <div>
+                        <label> <input type="checkbox" name="interests" id="interests" value="4"> Video juegos </label>
+                    </div>
+                </section>
+            </section>
+            <footer>
+                <button onclick="register()" class="form-button">Registrar</button>
+            </footer>
+        </div>
+    </main>
+</body>
+
+</html>
