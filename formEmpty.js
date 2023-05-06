@@ -84,6 +84,37 @@ function register(){
         interests: selectedInterests
     }
 
-    console.log(request)
+    
+    users.push(request)
+    fetch('http://localhost/api-php/',{
+        method:'POST', method:'no-cors', body: JSON.stringify( request )
+    })
+    .then(response => resut = response.json())
+    .then(data => {
+        phpUsers = data
+        console.log(phpUsers)
+    })
+    .catch(error => console.log(error))
+
     alert('Usted se ha registrado satisfactoriamente')
+    showListUsers(request);
+}
+
+function showListUsers(request){
+    const table = document.getElementById('table-users')
+    const row = document.createElement('tr')
+    
+    for(let prop in request){
+        const col = document.createElement('td')
+        if(prop == 'sex'){
+            col.innerHTML = request[prop] == 1 ? 'Varón' : 'Mujer'
+        }else {
+            col.innerHTML = request[prop]
+        }
+        
+        row.appendChild(col)
+    }
+
+    table.appendChild(row)
+
 }

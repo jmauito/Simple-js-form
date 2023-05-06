@@ -47,7 +47,16 @@ function register(){
         interests: Array.from(interests).filter(interest => interest.checked).map(i=>i.value)
     }
 
-    console.log(request)
+    users.push(request)
+    listUsers()
+    fetch('http://localhost/api-php/',{
+            method:'POST', body: JSON.stringify(request)} )
+        .then(res => result = res.json())
+        .then(data => {
+            phpUsers = data
+            console.log(phpUsers)
+        })
+        .catch(err=>console.log(err))
     
 }
 
@@ -100,4 +109,3 @@ function closeDialog(){
     const dialog = document.getElementById('dialog')
     dialog.setAttribute('style', 'display:none')
 }
-
