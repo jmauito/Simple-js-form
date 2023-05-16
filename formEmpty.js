@@ -87,7 +87,7 @@ function register(){
     
     users.push(request)
     fetch('http://localhost/api-php/',{
-        method:'POST', method:'no-cors', body: JSON.stringify( request )
+        method:'POST',  body: JSON.stringify( request )
     })
     .then(response => resut = response.json())
     .then(data => {

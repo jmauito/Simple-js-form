@@ -13,14 +13,16 @@ $password = "admin";
 
 $connection = new PDO($dsn, $username, $password);
 
+$id = $user->id;
 $name = $user->name;
 $email = $user->email;
 $birthDate = $user->birthdate;
 $sex = $user->sex;
 
-$query = "INSERT INTO users 
-    (username, email, birthdate, sex) 
-    VALUES('$name', '$email', '$birthDate', '$sex')";
+$query = "UPDATE users SET 
+    username = '$name', email = '$email', 
+    birthdate = '$birthDate', sex = '$sex' 
+    WHERE id = $id";
 
 
 
